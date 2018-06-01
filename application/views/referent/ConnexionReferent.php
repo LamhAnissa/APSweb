@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-  <title>Bootstrap Example</title>
+  <title>APS WEB</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -91,7 +91,7 @@ span.psw {
   <br> </br>
 
 
-<?php echo form_open('Referent/validation'); ?>
+<?php echo form_open('index.php/Referent/validation'); ?>
 
 
   <div class="container">
