@@ -36,7 +36,7 @@ class Intervenir_model extends CI_Model{
     {
         return $this->db
         ->select(idRef)
-        ->from($this->$table);
+        ->from($this->$table)
         ->where($this,idClient,$client)
          ->get();
         ->result();
