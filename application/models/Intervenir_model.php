@@ -43,3 +43,4 @@ class Intervenir_model extends CI_Model{
         
     }
 
+}
