@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-  <title>Bootstrap Example</title>
+  <title>APS WEB </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -29,7 +29,7 @@
   <h1 class="display-4" style="color :White; text-align:center;">Bienvenue sur APS Service</h1>
   <br> </br>
   <br> </br>
-  <p class="lead" style="color :black;"><b>Cette plateforme est destinée à permettre un échange d'information entre nos membres professionels et nos clients .</b></p>
+  <p class="lead" style="color :black;"><b>Cette plateforme est destinée à permettre un échange d'information entre nos membres professionels et l'entourage de nos clients .</b></p>
    
   <hr class="my-4">
   <p style="color :white" >Veuillez cliquer sur  <i style="color:black">"Connexion Referent" </i>pour accéder à votre espace personnel ou sur <i style="color:black">"Connexion Membre" </i>si vous faites partie de l'équipe professionel de <i>APS Serv.</i></p>
