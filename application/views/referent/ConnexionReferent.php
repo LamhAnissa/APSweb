@@ -91,7 +91,7 @@ span.psw {
   <br> </br>
 
 
-<?php echo form_open('index.php/Referent/validation'); ?>
+<?php echo form_open('Referent/validation'); ?>
 
 
   <div class="container">
