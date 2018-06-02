@@ -96,7 +96,8 @@ span.psw {
 
   <div class="container">
     <label for="uname"><b>Identifiant</b></label>
-    <input type="text" placeholder="Entrez votre Identifiant" name="mail" required>
+    <input type="text" placeholder="Entrez votre Identifiant" name="mail" value="<?php echo set_value('mail');?>required>
+    <h6 style="color:red;"><?php echo form_error('NomUtilisateur'); ?></h6>
 
     <label for="psw"><b>Mot de passe</b></label>
     <input type="password" placeholder="Entrer votre mot de passe" name="psw" required>
