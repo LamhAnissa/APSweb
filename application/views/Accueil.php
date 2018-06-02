@@ -39,7 +39,7 @@
   
      
  
-<a href="<?php echo site_url("Referent/connexion");?>"<button type="button" class="btn btn-warning btn-lg btn-block" style="color:black;">Connexion Membre</button></a>
+<a href="<?php echo site_url("Membre/connexion");?>"<button type="button" class="btn btn-warning btn-lg btn-block" style="color:black;">Connexion Membre</button></a>
 <br> </br>
    <a href="<?php echo site_url("Referent/connexion");?>" <button type="button" class="btn btn-danger btn-lg btn-block" style="color:black;">Connexion Referent</button></a>
   </p>
