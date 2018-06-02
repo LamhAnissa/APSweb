@@ -3,6 +3,7 @@ class Client_model extends CI_Model{
     
 
     protected $table ='Client';
+
      public function __construct() {
         parent::__construct();
         
@@ -30,15 +31,32 @@ class Client_model extends CI_Model{
 
 
 
-    public function validAcces($data) {
+    public function getInfos($idclient) {
         
-        $result = $this->db->select('mailClient,mdpClient')
+        $result = $this->db->select('nom_client','prenom_client','rue_client','ville_client','CP_client')
                         ->from($this->table)
-                        ->where('mailClient',$data["mailClienterent"])
-                        ->where('mdpClient',$data["psw"])
+                        ->where('idClient',$data["$idclient"])
                         ->get()
                         ->result();
         return $result;
     }
 
+
+      public function getClients() {
+        
+        $result = $this->db->select('nom_client','prenom_client','rue_client','ville_client','CP_client')
+                        ->from($this->table)
+                        ->get()
+                        ->result();
+        return $result;
+    }
+
+
+
 }
+
+
+
+
+
+

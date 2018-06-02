@@ -18,19 +18,58 @@ class Membre_model extends CI_Model{
  	->set('secteur_mb', $data['secteur'])
     ->set('ddn_mb', $data['ddn'])
     ->set('statut', $data['statut'])
-    ->set('numtel_mb', $data['Nom'])
+    ->set('numtel_mb', $data['numtel'])
     ->set('mail_mb', $data['mail'])
     ->set('mdp_mb', $data['mdp'])
  	->insert($this->table);
 }
-    public function verifmotdepasse($data) {
+    public function validAcces($data) {
         
-        $result = $this->db->select('mail_mb,mdp_mb')
+        $result = $this->db->select('idMb')
+                        ->from($this->table)
+                        ->where('mail_mb',$data['mailito'])
+                        ->where('mdp_mb',$data["password"])
+                        ->get()
+                        ->result();
+        return $result;
+    }
+
+
+ public function getId($mail) {
+        
+        $result = $this->db->select('idMb')
                         ->from($this->table)
                         ->where('mail_mb',$data['mail'])
                         ->where('mdp_mb',$data["mdp"])
                         ->get()
                         ->result();
         return $result;
-    }
 }
+
+ public function infosMb($id) {
+        
+        $result = $this->db->select('*')
+                        ->from($this->table)
+                        ->where('idMb',$id)
+                        ->get();
+                        ->result();
+                        
+        return $result;
+}
+
+
+
+ public function getAdmins() {
+        
+        $result = $this->db->select('*')
+                        ->from($this->table)
+                        ->where('statut','1')
+                        ->get();
+                        ->result();
+                        
+        return $result;
+}
+}
+
+
+

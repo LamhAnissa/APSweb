@@ -21,24 +21,26 @@ class Intervenir_model extends CI_Model{
         
     }
 
-    public function getAllClientByMb ($membre)
+    public function AllClientByMb ($membre)
     {
         return $this->db
-        ->select(idClient)
+        ->select('nom_client','prenom_client','rue_client','ville_client','CP_client')
         ->from($this->$table)
+        ->join('Client', 'Client.idClient = Intervenir.idClient');
         ->where($this,idMb,$membre)
         ->get()
         ->result();
         
     }
 
-    public function getAllMbByClient ($client)
+    public function AllMbByClient ($client)
     {
         return $this->db
-        ->select(idRef)
+        ->select('nom_mb','prenom_mb','secteur_mb')
         ->from($this->$table)
+        ->join('Membre', 'Membre.idmb = Intervenir.idMb');
         ->where($this,idClient,$client)
-         ->get()
+        ->get()
         ->result();
         
     }
