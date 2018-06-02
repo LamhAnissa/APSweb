@@ -20,6 +20,27 @@ class Intervenir extends CI_Controller{
     } else {
 
             $_decrypted=$this->encryption->decrypt(get_cookie('identityRef'));
-            $data=$this->Lier_model->AllClientByRef($_decrypted);
+            $data['membre']=$this->Lier_model->AllMbByClient($_decrypted);
+           
             $this->load->view('referent/listContacts',$data);
     }
+
+}
+
+public function listClients(){
+       
+           
+        if( get_cookie('identityMb')==''){
+        
+             $this->load->view('Referent/connexion');
+           
+           
+    } else {
+
+            $_decrypted=$this->encryption->decrypt(get_cookie('identityMb'));
+            $data['client']=$this->Intervenir_model->AllClientByMb($_decrypted);
+            
+
+            $this->load->view('intervenir/listClients',$data);
+    }
+}}

@@ -47,13 +47,88 @@ class Referent extends CI_Controller{
             $idref=$this->Referent_model->getId($_POST['mail']);
             $_crypted=$this->encryption->encrypt($idref);
             set_cookie('identityRef',$_crypted,3600);
-            redirect('Lier/listContactsbyRef');
+             $this->load->view('referent/InformationsClient');
         }
         
     }
 
 
+    public function monProfil(){
+       
+           
+        if( get_cookie('identityRef')==''){
+        
+             redirect('Referent/connexion');
+           
+           
+    } else {
+
+            $_decrypted=$this->encryption->decrypt(get_cookie('identityRef'));
+            $data['referent']=$this->Membre_model->infosMb($_decrypted);
+            
+            $this->load->view('referent/monprofil',$data);
+    }
+    }
+        
+    public function saveUpdates(){ // Modifier son profils
+
+
+          
+            $idref=$this->encryption->decrypt(get_cookie('identityRef'));
+            
+            $this->form_validation->set_rules('Nom','Nom','max_length[30]',
+                   array(
+                    'max_length' => "Votre nom ne doit pas dépasser les 30 caractères" 
+                   )
+                   );
+           $this->form_validation->set_rules('Prenom','Prenom','max_length[30]',
+                   array(
+                    'max_length' => "Votre prénom ne doit pas dépasser les 30 caractères" 
+                   )
+                   );
+            
+
+
+
+             $this->form_validation->set_rules('mail','Mail','min_length[7]|max_length[30]|valid_email|is_unique[.email]',
+                   array(
+                    'is_unique' => "Un compte est déja associé à cette adresse mail",
+                    'min_length' => "Format adresse mail invalide" 
+                    'max_length' => "Votre mail ne doit pas dépasser 30 caractères" 
+                   )
+                   );
+           
+            if ($this->form_validation->run() == TRUE){
+
+             
+                $data=array(
+                        
+                        "nomRef"=> htmlspecialchars($_POST['Nom']),
+                        "prenomRef"=> htmlspecialchars($_POST['Prenom']),
+                        "rueRef" => htmlspecialchars($_POST['rue']),
+                        "villeRef"=> htmlspecialchars($_POST['ville']),
+                        "CPRef"=> htmlspecialchars($_POST['cp']),
+                        "ddnRef" => htmlspecialchars($_POST['ddn']),
+                        "mailRef"=> htmlspecialchars($_POST['mail']),
+                        "numeroTel" => htmlspecialchars($_POST['num']),
+                        );
+                $this->Referent_model->update($idREf,$data);
+               
+            }
+            
+             redirect('Referent/monProfil');}
+            
 }
+           
+        
+    
+
+
+
+
+
+
+
 
 
 
