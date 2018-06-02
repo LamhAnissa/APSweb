@@ -20,7 +20,7 @@ class Lier_model extends CI_Model{
 
     public function AllClientByRef($idref) {
         
-        $list = $this->db->select('nom_client','prenom_client','rue_client','ville_client','CP_client')
+        $list = $this->db->select('idClient')
                         ->from($this->table)
                         ->where('idRef','$idref')
                         ->get()
