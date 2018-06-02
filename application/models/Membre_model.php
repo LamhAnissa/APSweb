@@ -51,7 +51,7 @@ class Membre_model extends CI_Model{
         $result = $this->db->select('*')
                         ->from($this->table)
                         ->where('idMb',$id)
-                        ->get();
+                        ->get()
                         ->result();
                         
         return $result;
@@ -64,7 +64,7 @@ class Membre_model extends CI_Model{
         $result = $this->db->select('*')
                         ->from($this->table)
                         ->where('statut','1')
-                        ->get();
+                        ->get()
                         ->result();
                         
         return $result;
