@@ -15,7 +15,7 @@ class Lier extends CI_Controller{
         if( get_cookie('identityRef')==''){
         
              $this->load->view('Referent/connexion');
-            
+                            
            
     } else {
 
@@ -24,34 +24,7 @@ class Lier extends CI_Controller{
             $this->load->view('referent/listContacts',$data);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
@@ -71,21 +44,9 @@ public function listContacts(){
             $this->load->view('user/monprofil',$data);
     }
             
-        }
-        $idOrganization = $_GET['idCollectif'];
-        $data = array();
-        $data['organization'] = $this->organization_model->getOrganizationById($idOrganization);
-        $data['allPersonsOrganization']= $this->person_model->getPersonByOrganization($idOrganization);
-        if (isset($_COOKIE['login']) && $this->member_model->checkCookieMember($_COOKIE['login'])) {
-                $data['allPersons'] = $this->person_model->getAllPerson();
-                $data['allCities'] = $this->city_model->getAllCity();
-                $this->load->view('organization_view', $data);
-        }
-        else{
-            $this->load->view('organization_visitor_view',$data);
-        }
+        
     }
-    /**
+    
 
 
 
