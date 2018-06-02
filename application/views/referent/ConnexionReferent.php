@@ -96,12 +96,13 @@ span.psw {
 
   <div class="container">
     <label for="uname"><b>Identifiant</b></label>
-    <input type="text" placeholder="Entrez votre Identifiant" name="mail" value="<?php echo set_value('mail');?>required>
+    <input type="text" placeholder="Entrez votre Identifiant" name="mail" value="<?php echo set_value('mail'); ?>" required/>
+
     <h6 style="color:red;"><?php echo form_error('mail'); ?></h6>
 
     <label for="psw"><b>Mot de passe</b></label>
     <input type="password" placeholder="Entrer votre mot de passe" name="psw" required>
-     <h5 style="color:red;"><?php echo form_error('mail'); ?></h5>   
+     <h5 style="color:red;"><?php echo form_error('psw'); ?></h5>   
     <button type="submit">Se connecter</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Se souvenir
