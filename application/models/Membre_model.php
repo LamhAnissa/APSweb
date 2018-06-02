@@ -46,11 +46,11 @@ class Membre_model extends CI_Model{
         return $result;
 }
 
- public function infosMb($id) {
+ public function infosMb($mail) {
         
         $result = $this->db->select('*')
                         ->from($this->table)
-                        ->where('idMb',$id)
+                        ->where('mail_mb',$mail)
                         ->get()
                         ->result();
                         
@@ -60,6 +60,13 @@ class Membre_model extends CI_Model{
 
 
  public function getAdmins() {
+
+        if( get_cookie('identityMb')==''){
+        
+             $this->load->view('Referent/connexion');
+           
+           
+    }else{
         
         $result = $this->db->select('*')
                         ->from($this->table)
@@ -67,8 +74,31 @@ class Membre_model extends CI_Model{
                         ->get()
                         ->result();
                         
-        return $result;
+        return $result;}
 }
+
+
+ public function allMembers() {
+
+        if( get_cookie('identityMb')==''){
+        
+             $this->load->view('Referent/connexion');
+           
+           
+    }else{
+        
+        $result = $this->db->select('*')
+                        ->from($this->table)
+                        ->get()
+                        ->result();
+                        
+        return $result;
+}}
+
+
+
+
+
 }
 
 

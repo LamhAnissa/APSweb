@@ -18,11 +18,11 @@ class Lier_model extends CI_Model{
 
 
 
-    public function AllClientByRef($idref) {
+    public function AllClientByRef($mail) {
         
         $list = $this->db->select('idClient')
                         ->from($this->table)
-                        ->where('idRef','$idref')
+                        ->where('mailRef','$mail')
                         ->get()
                         ->result();
         return $list;
