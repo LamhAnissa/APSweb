@@ -23,6 +23,8 @@ class Referent extends CI_Controller{
             $data=$this->Lier_model->AllClientByRef($_decrypted);
             $this->load->view('referent/listContacts',$data);
     }
+}
+}
 
 
 
@@ -34,27 +36,7 @@ class Referent extends CI_Controller{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*
 
 
 public function listContacts(){
