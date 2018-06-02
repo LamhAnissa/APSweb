@@ -168,28 +168,39 @@
 
 
 
-<h2 style= "text-align:center color:blue;">Connexion réussie </h2>
+<h4 style= "text-align:center color:blue;">Connexion réussie </h4>
  
 
- <h3>
+ <h4>
                       Vous voici sur votre compte personnel , vous pouvez désormais accèder en temps réel à toutes les informations laissées par nos intervenants et aux fiches liaisons de vos contacts . Les activités pratiquées lors des interventions et les messages importants vous serons communiqués sous formes de publications .
                         Pour pouvoir les consulter , merci de vous rendre sur le menu et cliquer sur 'Mes contacts' , vous pourrez alors choisir le contact pour lequel vous souhaitez consulter l'espace de publication .
 
                         
-                    </h3>
+                    </h4>
                     <br></br>
 
 
- <h2>
+ <h5>
                       Pour ce qui concerne vos propre informations personnelles et votre mot de passe , vous pouvez également les modifier en vous rendant sur 'Mon profil' 
                     
                         
-                    </h2>
+                    </h5>
 
              <div id="footer">
       <div class="container ">
         <p class="footer-block"  style="text-align:center;" style="color:Grey"><strong>   Projet Web - IG3 Polytech - LAMHAOUAR  &copy;</strong></p>  
       </div>
     </div>
+     <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
 </body>
 </html>
