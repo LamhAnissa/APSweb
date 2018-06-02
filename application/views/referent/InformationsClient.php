@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
 <head>
 
     <meta charset="utf-8">
@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>APS WEB / Mon Profil</title>
+    <title>APS WEB</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -45,75 +45,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">APS Serv</a>
+                <a class="navbar-brand" href="index.html"><b>APS WEB</b></a>
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="#">
-                                
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                               
-                            </a>
-                        </li>
-                       
-                        <li class="divider"></li>
-                  
-                    </ul>
-                    <!-- /.dropdown-messages -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-tasks">
-                        <li>
-                            
-                        </li>
-
-                            <a class="text-center" href="#">
-                                <strong>See All Tasks</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-tasks -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                       
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                             
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
+                <
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Mon profils</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Mon Profil</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
@@ -142,9 +86,10 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="<?php echo site_url("Referent/monprofil")?>"><i class="fa fa-dashboard fa-fw"></i> Mon profil </a>
+                            <a href=""<?php echo site_url("membre/monprofil")?>""><i style="color:green" class="fa fa-dashboard fa-fw"></i> Mon Profil</a>
                         </li>
-                        
+                      
+                     
                         <li>
                             <a href="<?php echo site_url("Referent/mesContacts")?>"><i class="fa fa-table fa-fw"></i> Mes contacts</a>
                         </li>
@@ -153,9 +98,6 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> APS Service<span class="fa arrow"></span></a>
                            
                         </li>
-                        
-                        
-                            </ul>
                             <!-- /.nav-second-level -->
                         </li>
                     </ul>
@@ -165,14 +107,21 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-
-
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 style="color:green"class="page-header">Informations</h1>
+                    </div>
+                    
+                </div>
 
 <h4 style= "text-align:center color:blue;">Connexion réussie </h4>
  
 
- <h4>
-                      Vous voici sur votre compte personnel , vous pouvez désormais accèder en temps réel à toutes les informations laissées par nos intervenants et aux fiches liaisons de vos contacts . Les activités pratiquées lors des interventions et les messages importants vous serons communiqués sous formes de publications .
+ <h>
+                      Vous voici sur votre compte personnel , vous pouvez désormais accèder en temps réel à toutes les informations laissées par nos intervenants et aux fiches liaisons de vos contacts . Les activités pratiquées lors des interventions et les messages importants vous serons communiqués sous formes de publications . <br></br>
                         Pour pouvoir les consulter , merci de vous rendre sur le menu et cliquer sur 'Mes contacts' , vous pourrez alors choisir le contact pour lequel vous souhaitez consulter l'espace de publication .
 
                         
@@ -181,14 +130,23 @@
 
 
  <h5>
-                      Pour ce qui concerne vos propre informations personnelles et votre mot de passe , vous pouvez également les modifier en vous rendant sur 'Mon profil' 
+                      Pour ce qui concerne vos propres informations personnelles et votre mot de passe , vous pouvez également les modifier en vous rendant sur 'Mon profil' 
                     
                         
                     </h5>
 
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+  
              <div id="footer">
       <div class="container ">
-        <p class="footer-block"  style="text-align:center;" style="color:Grey"><strong>   Projet Web - IG3 Polytech - LAMHAOUAR  &copy;</strong></p>  
+        <p class="footer-block"  style="text-align:center; " style="color:Grey"><strong>   Projet Web - IG3 Polytech - LAMHAOUAR  &copy;</strong></p>  
       </div>
     </div>
      <script src="../vendor/jquery/jquery.min.js"></script>
