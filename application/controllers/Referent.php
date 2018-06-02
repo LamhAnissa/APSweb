@@ -44,9 +44,10 @@ class Referent extends CI_Controller{
 
         }
         else {
-            $idref=$this->Referent_model->getId($_POST['mail']);
-            $_crypted=$this->encryption->encrypt($idref);
-            set_cookie('identityRef',$_crypted,3600);
+          
+            $ref=$data['mail'];
+            $_crypted=$this->encryption->encrypt($ref);
+            set_cookie('loginRef',$_crypted,3600);
              $this->load->view('referent/InformationsClient');
         }
         
@@ -56,15 +57,15 @@ class Referent extends CI_Controller{
     public function monProfil(){
        
            
-        if( get_cookie('identityRef')==''){
+        if( get_cookie('loginRef')==''){
         
              redirect('Referent/connexion');
            
            
     } else {
 
-            $_decrypted=$this->encryption->decrypt(get_cookie('identityRef'));
-            $data['referent']=$this->Membre_model->infosMb($_decrypted);
+            $_decrypted=$this->encryption->decrypt(get_cookie('loginRef'));
+            $data['referent']=$this->Referent_model->infosRef($_decrypted);
             
             $this->load->view('referent/monprofil',$data);
     }
@@ -74,7 +75,7 @@ class Referent extends CI_Controller{
 
 
           
-            $idref=$this->encryption->decrypt(get_cookie('identityRef'));
+            $logref=$this->encryption->decrypt(get_cookie('loginRef'));
             
             $this->form_validation->set_rules('Nom','Nom','max_length[30]',
                    array(
@@ -110,7 +111,8 @@ class Referent extends CI_Controller{
                         "mailRef"=> htmlspecialchars($_POST['mail']),
                         "numeroTel" => htmlspecialchars($_POST['num']),
                         );
-                $this->Referent_model->update($idREf,$data);
+                $this->db->where('mailRef', $logref);
+                $this->Referent_model->update('Referent',$data);
                
             }
             
