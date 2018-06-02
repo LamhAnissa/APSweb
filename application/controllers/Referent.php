@@ -19,7 +19,7 @@ class Referent extends CI_Controller{
     }
 
       public function connexion(){
-       -
+       
         
              $this->load->view('referent/ConnexionReferent');
            
