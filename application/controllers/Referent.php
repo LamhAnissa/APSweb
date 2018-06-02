@@ -45,7 +45,7 @@ class Referent extends CI_Controller{
         }
         else {
           
-            $ref=$data['mail'];
+            $ref=$_POST['mail'];
             $_crypted=$this->encryption->encrypt($ref);
             set_cookie('loginRef',$_crypted,3600);
              $this->load->view('referent/InformationsClient');
