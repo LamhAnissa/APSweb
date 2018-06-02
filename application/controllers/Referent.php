@@ -93,9 +93,7 @@ class Referent extends CI_Controller{
              $this->form_validation->set_rules('mail','Mail','min_length[7]|max_length[30]|valid_email|is_unique[.email]',
                    array(
                     'is_unique' => "Un compte est déja associé à cette adresse mail",
-                    'min_length' => "Format adresse mail invalide" 
-                    'max_length' => "Votre mail ne doit pas dépasser 30 caractères" 
-                   )
+                    'min_length' => "Format adresse mail invalide"  )
                    );
            
             if ($this->form_validation->run() == TRUE){
