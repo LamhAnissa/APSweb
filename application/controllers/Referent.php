@@ -11,14 +11,12 @@ class Referent extends CI_Controller{
     
     public function index(){
        
-           
-        if( get_cookie('identityRef')==''){
-        
+      
            
              $this->load->view('Accueil');
            
            
-    }}
+    }
 
       public function connexion(){
        
