@@ -19,13 +19,12 @@ class Referent extends CI_Controller{
     }
 
       public function connexion(){
-       
-           if( get_cookie('identityRef')==''){
+       -
         
              $this->load->view('referent/ConnexionReferent');
            
            
-    }}
+    }
 
 
     public function validation(){
