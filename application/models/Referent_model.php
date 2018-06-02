@@ -25,7 +25,6 @@ class Referent_model extends CI_Model{
 
 
 
-
     public function validAccess($data) {
         
         $result = $this->db
@@ -51,6 +50,17 @@ class Referent_model extends CI_Model{
       public function getId($mail) {
         
         $result = $this->db->select('idRef')
+                        ->from($this->table)
+                        ->where('mailRef','$mail')
+                        ->get()
+                        ->result();
+        return $result;
+    }
+
+
+      public function  infosRef($mail) {
+        
+        $result = $this->db->select('*')
                         ->from($this->table)
                         ->where('mailRef','$mail')
                         ->get()
