@@ -49,7 +49,7 @@ class Referent extends CI_Controller{
         $query = $this->Referent_model->validAccess($data);
        
         if (empty($query)){
-            redirect('Referent/z');
+            redirect('Referent/connexion');
 
         }
         else {
