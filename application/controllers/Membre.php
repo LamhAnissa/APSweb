@@ -9,6 +9,16 @@ class Membre extends CI_Controller{
        
     } 
 
+
+
+      public function connexion(){
+       
+        
+             $this->load->view('membre/ConnexionMembre');
+           
+           
+    }
+
     public function validation(){
      
     $enplus = strlen($_POST['password'] );
@@ -26,7 +36,7 @@ class Membre extends CI_Controller{
         $query = $this->Membre_model->validAccess($data);
        
         if (empty($query)){
-            redirect('Referent/connexion');
+            redirect('Membre/connexion');
         }
         else {
             $statut=$this->Membre_model->getStatut($_POST['mail']);
@@ -34,7 +44,7 @@ class Membre extends CI_Controller{
             $_crypted=$this->encryption->encrypt($idref);
             set_cookie('identityMb',$_crypted,3600);
             set_cookie('statutMb',$statut,3600);
-           }
+           
         
              if ($statut==1){
 
@@ -42,7 +52,7 @@ class Membre extends CI_Controller{
              }
              else{
             $this->load->view('membre/Informations1'); // pensez à changer le menu ...
-        }
+        }}
 
         
     }
