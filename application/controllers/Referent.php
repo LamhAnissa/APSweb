@@ -49,14 +49,14 @@ class Referent extends CI_Controller{
         $query = $this->Referent_model->validAccess($data);
        
         if (empty($query)){
-            redirect('Referent/connexion');
+            redirect('Referent/z');
 
         }
         else {
             $idref=$this->Referent_model->getId($_POST['mail']);
             $_crypted=$this->encryption->encrypt($idref);
             set_cookie('identityRef',$_crypted,3600);
-            redirect('Lier/listContactsbyRef','refresh');
+            redirect('Lier/listContactsbyRef');
         }
         
     }
