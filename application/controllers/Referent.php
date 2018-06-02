@@ -32,13 +32,7 @@ class Referent extends CI_Controller{
 
     public function validation(){
        
-    
-    // On choppe la longueur de la chaîne( sel dynamique)
-    $enplus = strlen($_POST['psw'] );
-
-    // On sale et on hash
-    $password = $enplus . $_POST['psw'] ;
-    $password = hash('sha512', $password);
+        $password=$_POST['psw'];
     
     //ce qu'on va renvoyer en test     
     $data=array(
