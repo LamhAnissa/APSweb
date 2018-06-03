@@ -82,7 +82,7 @@ class Membre extends CI_Controller{
    
 
 
-        public function saveUpdates(){ // Modifier son profils
+        public function saveUpdates(){ // Modifier son profil
 
 
             $statut=$this->encryption->decrypt(get_cookie('statutMb'));
@@ -108,7 +108,7 @@ class Membre extends CI_Controller{
                    array(
                     'is_unique' => "Un compte est déja associé à cette adresse mail",
                     'min_length' => "Format adresse mail invalide" 
-                    'max_length' => "Votre mail ne doit pas dépasser 30 caractères" 
+                  //  'max_length' => "Votre mail ne doit pas dépasser 30 caractères" 
                    )
                    );
            
