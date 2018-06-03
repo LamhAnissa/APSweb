@@ -9,17 +9,40 @@ class Publication extends CI_Controller{
        
     } 
 
-    public function listPubli(){
+    public function listPubliByMb(){
        
            
-        if( get_cookie('identityRef')==''){
+        if( get_cookie('loginMb')==''){
         
              $this->load->view('Referent/connexion');
            
            
     } else {
 
-            $_decrypted=$this->encryption->decrypt(get_cookie('identityRef'));
-            $data=$this->Lier_model->AllClientByRef($_decrypted);
-            $this->load->view('referent/listContacts',$data);
+            $_decrypted=$this->encryption->decrypt(get_cookie('loginMb'));
+            $idMb=$this->Membre_model->getId($_decrypted);
+            $data['publication']=$this->_model->AllPubliBy($idMb);
+            $this->load->view('membre/mesPublications',$data);
+}}
+
+            public function publication  {
+
+
+        if( get_cookie('loginMb')==''){
+        
+             $this->load->view('Membre/connexion');
+           
+           
+    } else {
+
+            $_decrypted=$this->encryption->decrypt(get_cookie('loginMb'));
+            $data['idMb']=$this->Membre_model->getId($_decrypted);
+            $this->Publication_model->publier($data);
+            $info=$this->Client_model->getInfos($data['idClient']);
+            $this->load->view('Client/ficheClient',$info);
+
+}
+
     }
+
+}

@@ -29,12 +29,18 @@ class Referent extends CI_Controller{
 
     public function validation(){
        
-        $password=$_POST['psw'];
+           // On choppe la longueur de la chaîne( sel dynamique)
+    $long = strlen($_POST['psw'] );
+
+    // On sale et on hash
+    $password = $long . $_POST['psw'] ;
+    $pass = hash('sha512', $password);
     
+    //ce qu'on va renvoyer en test     
     //ce qu'on va renvoyer en test     
     $data=array(
             "mail" => htmlspecialchars($_POST['mail']),
-            "mdp" => $password,
+            "mdp" => $pass,
         );
 
         $query = $this->Referent_model->validAccess($data);
@@ -67,7 +73,25 @@ class Referent extends CI_Controller{
             $_decrypted=$this->encryption->decrypt(get_cookie('loginRef'));
             $data['referent']=$this->Referent_model->infosRef($_decrypted);
             
-            $this->load->view('referent/monprofil',$data);
+            $this->load->view('referent/monprofilRef',$data);
+    }
+    }
+
+
+    public function mesContacts(){
+       
+           
+        if( get_cookie('loginRef')==''){
+        
+             redirect('Referent/connexion');
+           
+           
+    } else {
+
+            $_decrypted=$this->encryption->decrypt(get_cookie('loginRef'));
+            $data['membres']=$this->Lier_model->AllCientsByRef($_decrypted);
+            
+            $this->load->view('referent/listContacts',$data);
     }
     }
         

@@ -12,7 +12,7 @@ class Lier extends CI_Controller{
     public function listContactsbyRef(){
        
            
-        if( get_cookie('identityRef')==''){
+        if( get_cookie('loginRef')==''){
         
              $this->load->view('Referent/connexion');
                             
@@ -33,15 +33,15 @@ class Lier extends CI_Controller{
 public function listContacts(){
 
       $data = array();
-      if( get_cookie('nomref')==''){
+      if( get_cookie('logef')==''){
           
              redirect('Referent/index');
               
     }
     else {
-            $_decrypted=$this->encryption->decrypt(get_cookie('nomRef'));
+            $_decrypted=$this->encryption->decrypt(get_cookie('loginRef'));
           
-            $this->load->view('user/monprofil',$data);
+            $this->load->view('Referent/monprofil',$data);
     }
             
         

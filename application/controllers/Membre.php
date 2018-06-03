@@ -39,10 +39,10 @@ class Membre extends CI_Controller{
             redirect('Membre/connexion');
         }
         else {
-            $statut=$this->Membre_model->getStatut($_POST['mail']);
-            $idmb=$this->Membre_model->getId($_POST['mail']);
-            $_crypted=$this->encryption->encrypt($idref);
-            set_cookie('identityMb',$_crypted,3600);
+            $statut=$this->Membre_model->getStatut($data['mail']);
+            $mb=$data['mail'];
+            $_crypted=$this->encryption->encrypt($mb);
+            set_cookie('loginMb',$_crypted,3600);
             set_cookie('statutMb',$statut,3600);
            
         
@@ -62,54 +62,42 @@ class Membre extends CI_Controller{
        
        
            
-        if( get_cookie('identityMb')==''){
+        if( get_cookie('loginMb')==''){
         
-             redirect('Referent/connexion');
+             redirect('Membre/connexion');
            
            
     } else {
 
-            $_decrypted=$this->encryption->decrypt(get_cookie('identityMb'));
-            $data['membre']=$this->Membre_model->infosMb($_decrypted);
+
+        $login=$this->encryption->decrypt(get_cookie('loginMb'));
+            $data['membre']=$this->Membre_model->infosMb($login);
+
+        if ($statut==1){
             
             $this->load->view('Membre/monprofil',$data);
-    }
+    } else {$this->load->view('Membre/monprofiladmin',$data);}
     }
 
-   public function ProfilAdmin(){ // Affiche le profil type admin
-       
-           
-        if( get_cookie('identityMb')==''){
-        
-             $this->load->view('Referent/connexion');
-           
-           
-    } else {
-
-            $_decrypted=$this->encryption->decrypt(get_cookie('identityMb'));
-            $data['membre']=$this->Membre_model->infosMb($_decrypted);
-            
-            $this->load->view('Membre/monprofiladmin',$data);
-    }
-    }
+   
 
 
         public function saveUpdates(){ // Modifier son profils
 
 
             $statut=$this->encryption->decrypt(get_cookie('statutMb'));
-            $idmb=$this->encryption->decrypt(get_cookie('identityMb'));
+            $mailmb=$this->encryption->decrypt(get_cookie('loginMb'));
             
             $this->form_validation->set_rules('Nom','Nom','max_length[30]',
                    array(
                     'max_length' => "Votre nom ne doit pas dépasser les 30 caractères" 
                    )
                    );
-           $this->form_validation->set_rules('Prenom','Prenom','max_length[30]',
+        /*   $this->form_validation->set_rules('Prenom','Prenom','max_length[30]',
                    array(
                     'max_length' => "Votre prénom ne doit pas dépasser les 30 caractères" 
                    )
-                   );
+                   );  */
 
              $this->form_validation->set_rules('Secteur','Secteur','max_length[30]',
                    array(
@@ -136,6 +124,7 @@ class Membre extends CI_Controller{
                         "numTel_mb"=> htmlspecialchars($_POST['numtel']),
                         "mail_mb" => htmlspecialchars($_POST['mail']),
                         );
+                $this->db->where('mail_mb', $mailmb);
                 $this->Membre_model->update($idmb,$data);
                
             }
@@ -153,31 +142,31 @@ class Membre extends CI_Controller{
         public function allAdmin(){
        
            
-        if( get_cookie('identityMb')==''){
+        if( get_cookie('loginMb')==''){
         
-             $this->load->view('Referent/connexion');
+             $this->load->view('Membre/connexion');
            
            
     } else {
 
-            $_decrypted=$this->encryption->decrypt(get_cookie('identityMb'));
-            $data['admins']=$this->Membre_model->getAdmins($_decrypted);
+            $mailmb=$this->encryption->decrypt(get_cookie('loginMb'));
+            $data['admins']=$this->Membre_model->getAdmins();
             $this->load->view('membre/listAdmins',$data);
     }}
 
         public function allPersons(){
        
            
-        if( get_cookie('identityMb')==''){
+        if( get_cookie('loginMb')==''){
         
-             $this->load->view('Referent/connexion');
+             $this->load->view('Membre/connexion');
            
            
     } else {
 
-            $_decrypted=$this->encryption->decrypt(get_cookie('identityMb'));
-            $data['membres']=$this->Membre_model->allMembers($_decrypted);
-            $data['clients']=$this->Client_model->allClients($_decrypted);
+            $login=$this->encryption->decrypt(get_cookie('loginMb'));
+            $data['membres']=$this->Membre_model->allMembers();
+            $data['clients']=$this->Client_model->allClients();
             $this->load->view('membre/listPersons',$data);
     }}
 
@@ -185,15 +174,19 @@ class Membre extends CI_Controller{
     public function mesPubli(){
        
            
-        if( get_cookie('identityMb')==''){
+        if( get_cookie('loginMb')==''){
         
-             $this->load->view('Referent/connexion');
+             $this->load->view('Membre/connexion');
            
            
     } else {
 
-            $_decrypted=$this->encryption->decrypt(get_cookie('identityMb'));
-            $data['publications']=$this->Publication_model->allPubliByMb($_decrypted);
+            $login=$this->encryption->decrypt(get_cookie('loginMb'));
+            $data['publications']=$this->Publication_model->allPubliByMb($login);
             $this->load->view('membre/mesPublications',$data);
     }}
+
+    
 }
+
+
