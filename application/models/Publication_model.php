@@ -32,7 +32,7 @@ public function AllPubliByClient($idclient) {
                         ->result();
         return $list;
     }
-}
+
 
 public function AllPubliBymb($idmb) {
         
