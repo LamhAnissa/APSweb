@@ -1,6 +1,5 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Referent extends CI_Controller{
     
     
@@ -17,7 +16,6 @@ class Referent extends CI_Controller{
            
            
     }
-
       public function connexion(){
        
         
@@ -25,29 +23,24 @@ class Referent extends CI_Controller{
            
            
     }
-
-
     public function validation(){
        
-           // On choppe la longueur de la chaîne( sel dynamique)
+   /*   pour vous permettre la connexion en tant que referent      
     $long = strlen($_POST['psw'] );
-
-    // On sale et on hash
-    $password = $long . $_POST['psw'] ;
-    $pass = hash('sha512', $password);
     
-    //ce qu'on va renvoyer en test     
-    //ce qu'on va renvoyer en test     
+    $password = $long . $_POST['psw'] ;
+    $pass = hash('sha512', $password); */
+
+    $pass=$_POST['psw'] ;
+         
     $data=array(
             "mail" => htmlspecialchars($_POST['mail']),
             "mdp" => $pass,
         );
-
         $query = $this->Referent_model->validAccess($data);
        
         if (empty($query)){
             redirect('Referent/connexion');
-
         }
         else {
           
@@ -58,8 +51,6 @@ class Referent extends CI_Controller{
         }
         
     }
-
-
     public function monProfil(){
        
            
@@ -69,15 +60,12 @@ class Referent extends CI_Controller{
            
            
     } else {
-
             $_decrypted=$this->encryption->decrypt(get_cookie('loginRef'));
             $data['referent']=$this->Referent_model->infosRef($_decrypted);
             
             $this->load->view('referent/monprofilRef',$data);
     }
     }
-
-
     public function mesContacts(){
        
            
@@ -87,7 +75,6 @@ class Referent extends CI_Controller{
            
            
     } else {
-
             $_decrypted=$this->encryption->decrypt(get_cookie('loginRef'));
             $data['membres']=$this->Lier_model->AllCientsByRef($_decrypted);
             
@@ -96,8 +83,6 @@ class Referent extends CI_Controller{
     }
         
     public function saveUpdates(){ // Modifier son profils
-
-
           
             $logref=$this->encryption->decrypt(get_cookie('loginRef'));
             
@@ -112,9 +97,6 @@ class Referent extends CI_Controller{
                    )
                    );
             
-
-
-
              $this->form_validation->set_rules('mail','Mail','min_length[7]|max_length[30]|valid_email|is_unique[.email]',
                    array(
                     'is_unique' => "Un compte est déja associé à cette adresse mail",
@@ -122,7 +104,6 @@ class Referent extends CI_Controller{
                    );
            
             if ($this->form_validation->run() == TRUE){
-
              
                 $data=array(
                         
@@ -146,39 +127,3 @@ class Referent extends CI_Controller{
            
         
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
