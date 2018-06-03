@@ -10,13 +10,21 @@ class Lier_model extends CI_Model{
     
     public function addRelation($idref , $idcli) {
         
-  
- 	
-                                }
-
-
-
-
+        
+        ->set($this->idClient,$idcli)
+        ->set($this->idRef,$idref)
+        ->insert($this->$table);
+        
+    }
+ 
+    public function deleteRelation($idref , $idcli) {
+       
+        return $this->db
+        ->where('idRef', '$idRef')
+        ->where('idClient', '$idClient')
+        ->delete($this->table);
+    }
+    
 
     public function AllClientByRef($mail) {
         
@@ -28,15 +36,14 @@ class Lier_model extends CI_Model{
         return $list;
     }
 
-      public function getId($mail) {
+    public function AllRefByClient($idclient) {
         
-        $result = $this->db->select('idRef')
+        $list = $this->db->select('idRef')
                         ->from($this->table)
-                        ->where('mailRef','$mail')
+                        ->where('idClient','$idclient')
                         ->get()
                         ->result();
-        return $result;
+        return $list;
     }
-
 
 }

@@ -10,7 +10,7 @@ class Intervenir_model extends CI_Model{
         
     } 
     
-    public function addIntrv ($idcli, $idmb, $date)
+    public function addIntrv ($idcli, $idmb)
     {
         $date=SYSDATE;
         return $this->db

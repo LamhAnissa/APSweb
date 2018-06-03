@@ -68,5 +68,8 @@ class Referent_model extends CI_Model{
         return $result;
     }
 
-
+ public function deleteRef($id) {
+    $this->db->where('idRef', $id);
+$this->db->delete('$this->table');
+}
 }
