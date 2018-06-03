@@ -27,7 +27,7 @@ public function AllPubliByClient($idclient) {
         $list = $this->db->select('*')
                         ->from($this->table)
                         ->where('idClient','idclient')
-                        -> ORDER BY 'idPubli' DESC
+                        ->order_by("idPubli","DESC")
                         ->get()
                         ->result();
         return $list;
@@ -42,7 +42,7 @@ public function AllPubliBymb($idmb) {
                         ->join('Intervenir', 'Intervenir.idMb = Membre.idMb')
                         ->join('Client', 'Client.idClient = Intervenir.idClient')
                         ->where('idMb','idmb')
-                        -> ORDER BY 'idPubli' DESC
+                        ->order_by("idPubli","DESC")
                         ->get()
                         ->result();
         return $list;
