@@ -56,15 +56,12 @@ class Client_model extends CI_Model{
 
       public function deleteClient($idclient) { // supprimer le référent 
        
-        $data['referent']=$this->Intervenir_model->getAllRefByClient($idclient)
-        <?php foreach ($referent as $item) {
-            $this->Lier_model->deleteRelation($idclient,$item->idRef);}
              
         $tables = array($this->table, 'Intervenir');
         $this->db
         ->where('idClient', 'idclient')
         ->delete($this->table);
- ?>
+
     }
 }
 
