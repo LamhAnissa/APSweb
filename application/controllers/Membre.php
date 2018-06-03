@@ -78,7 +78,7 @@ class Membre extends CI_Controller{
             $this->load->view('Membre/monprofil',$data);
     } else {$this->load->view('Membre/monprofiladmin',$data);}
     }
-
+}
    
 
 
