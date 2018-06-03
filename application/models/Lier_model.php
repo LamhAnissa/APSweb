@@ -11,8 +11,8 @@ class Lier_model extends CI_Model{
     public function addRelation($idref , $idcli) {
         
         
-        ->set($this->idClient,$idcli)
-        ->set($this->idRef,$idref)
+        ->set('idClient',$idcli)
+        ->set('idRef',$idref)
         ->insert($this->$table);
         
     }
