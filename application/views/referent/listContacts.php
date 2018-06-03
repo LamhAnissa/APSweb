@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>APS WEB / Liste contacts</title>
+    <title>APS WEB - Contacts</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -142,12 +142,10 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="blank.html"><i class="fa fa-dashboard fa-fw"></i> Mes contacts</a>
+                            <a href="'Lier/listContactsbyRef'"><i class="fa fa-dashboard fa-fw"></i> Mes contacts</a>
                         </li>
                         
-                        <li>
-                            <a href="listeintervenant.html"><i class="fa fa-table fa-fw"></i> Liste des intervenants</a>
-                        </li>
+                        
                         <li>
                             <a href="ficheclient.html"><i class="fa fa-edit fa-fw"></i> Fiche de liaison</a>
                         </li>
@@ -174,7 +172,7 @@
                                 <div class="form-group">
 
 
-     <h2 style= "text-align:center">Vos contacts enregistrés dans notre service</h2>
+     <h2 style= "text-align:center">Vos clients</h2>
   <br> </br>            
 
 <div class="items col-xs-12 col-sm-6 col-md-6 col-lg-6 clearfix">
