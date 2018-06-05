@@ -26,7 +26,7 @@
 </nav>
 
 <div class="jumbotron" style="background-color:rgb(70, 225, 125);">
-  <h1 class="display-4" style="color :White; text-align:center;">Bienvenue sur APS Service</h1>
+  <h1 class="display-4" style="color :White; text-align:center;">Bienvenue sur APS Web</h1>
   <br> </br>
   <br> </br>
   <p class="lead" style="color :black;"><b>Cette plateforme est destinée à permettre un échange d'informations entre nos membres professionels et l'entourage de nos clients .</b></p>
