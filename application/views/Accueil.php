@@ -32,7 +32,7 @@
   <p class="lead" style="color :black;"><b>Cette plateforme est destinée à permettre un échange d'informations entre nos membres professionnels et l'entourage de nos clients .</b></p>
    
   <hr class="my-4">
-  <p style="color :white" >Veuillez cliquer sur  <i style="color:black">"Connexion Referent" </i>pour accéder à votre espace personnel ou sur <i style="color:black">"Connexion Membre" </i>si vous faites partie de l'équipe professionel de <i>APS Serv.</i></p>
+  <p style="color :white" >Veuillez cliquer sur  <i style="color:black">"Connexion Referent" </i>pour accéder à votre espace personnel ou sur <i style="color:black">"Connexion Membre" </i>si vous faites partie de l'équipe professionnelle de <i>APS Serv.</i></p>
   <p class="lead">
    <br> </br>
   
